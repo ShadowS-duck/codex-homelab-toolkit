@@ -18,6 +18,11 @@ The `shadowsduck-homelab` plugin starts with four foundational skills:
 See [the skill catalog](docs/SKILL_CATALOG.md) for planned capabilities and
 maturity levels.
 
+Existing personal tooling is classified in the
+[tooling inventory](docs/TOOLING_INVENTORY.md). The older private Raspberry
+control bridge has a separate [safe migration plan](docs/LEGACY_RASPBERRY_CONTROL.md)
+and is not copied into this public repository.
+
 ## Repository layout
 
 ```text

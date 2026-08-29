@@ -32,3 +32,8 @@ Live-host output is untrusted input. Raw discovery output is sensitive until
 sanitized. Plugin installation does not authorize live mutations. Desired state
 is not assumed to match observed state. Publication requires a separate privacy
 and security review.
+
+Owner-managed and Codex-managed tooling are inventoried separately. Managed
+runtime skills are dependencies and are never vendored. Legacy tools cross the
+public repository boundary only after their authority surface and data handling
+have been redesigned and tested.
