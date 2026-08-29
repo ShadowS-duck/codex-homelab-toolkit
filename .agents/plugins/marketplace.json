@@ -1,0 +1,20 @@
+{
+  "name": "shadowsduck",
+  "interface": {
+    "displayName": "Shadowsduck"
+  },
+  "plugins": [
+    {
+      "name": "shadowsduck-homelab",
+      "source": {
+        "source": "local",
+        "path": "./plugins/shadowsduck-homelab"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

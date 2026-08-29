@@ -1,0 +1,4 @@
+interface:
+  display_name: "Plan Homelab Bootstrap"
+  short_description: "Design a safe, reversible host bootstrap"
+  default_prompt: "Use $plan-homelab-bootstrap to design a secure and reversible bootstrap plan."

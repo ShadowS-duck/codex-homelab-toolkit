@@ -1,0 +1,4 @@
+interface:
+  display_name: "Audit Homelab Host"
+  short_description: "Collect a safe, read-only host baseline"
+  default_prompt: "Use $audit-homelab-host to collect and assess a sanitized host baseline."

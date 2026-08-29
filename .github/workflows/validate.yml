@@ -1,0 +1,31 @@
+name: Validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate repository contracts
+        run: python scripts/validate_portable.py
+      - name: Check shell syntax
+        run: find . -type f -name '*.sh' -print0 | xargs -0 -r -n1 bash -n
+      - name: Check placeholders
+        run: |
+          ! grep -RInE '\[TODO:|TODO\b|FIXME\b' . \
+            --exclude-dir=.git --exclude=validate.sh \
+            --exclude=validate_portable.py --exclude=validate.yml
+      - name: Check JSON
+        run: |
+          python -m json.tool .agents/plugins/marketplace.json >/dev/null
+          python -m json.tool plugins/shadowsduck-homelab/.codex-plugin/plugin.json >/dev/null

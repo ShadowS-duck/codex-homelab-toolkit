@@ -1,0 +1,26 @@
+{
+  "name": "shadowsduck-homelab",
+  "version": "0.1.0",
+  "description": "Safe, evidence-driven workflows for building and operating homelabs with Codex.",
+  "author": {
+    "name": "ShadowS-duck",
+    "url": "https://github.com/ShadowS-duck"
+  },
+  "repository": "https://github.com/ShadowS-duck/codex-homelab-toolkit",
+  "license": "MIT",
+  "keywords": ["codex", "homelab", "raspberry-pi", "infrastructure", "operations"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "ShadowS-duck Homelab",
+    "shortDescription": "Safe, evidence-driven homelab operations.",
+    "longDescription": "Reusable Codex workflows for read-only discovery, safe bootstrap planning, infrastructure change review, and documentation synchronization.",
+    "developerName": "ShadowS-duck",
+    "category": "Productivity",
+    "capabilities": ["Interactive"],
+    "defaultPrompt": [
+      "Audit this homelab host without changing it.",
+      "Plan a safe and reversible host bootstrap.",
+      "Review this infrastructure change and rollback."
+    ]
+  }
+}

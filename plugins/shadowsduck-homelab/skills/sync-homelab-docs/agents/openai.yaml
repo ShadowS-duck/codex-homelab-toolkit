@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sync Homelab Docs"
+  short_description: "Reconcile evidence, configuration, and docs"
+  default_prompt: "Use $sync-homelab-docs to reconcile observed state, desired state, and documentation."

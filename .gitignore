@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.cache/
+.tmp/
+tmp/
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+secrets/
+reports/private/

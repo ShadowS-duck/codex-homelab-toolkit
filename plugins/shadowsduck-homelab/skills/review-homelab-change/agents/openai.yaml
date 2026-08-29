@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Homelab Change"
+  short_description: "Review infrastructure changes for safety"
+  default_prompt: "Use $review-homelab-change to review this homelab change and its rollback path."
