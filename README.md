@@ -27,6 +27,17 @@ The four foundation skills currently satisfy the repository's
 [tested gate](docs/RELEASE_GATES.md); the plugin remains pre-stable until bounded
 target, upgrade, rollback, and tagged-release evidence exist.
 
+## Install a pinned release
+
+```bash
+codex plugin marketplace add ShadowS-duck/codex-homelab-toolkit --ref v0.1.0
+codex plugin add shadowsduck-homelab@shadowsduck
+```
+
+Pinning the tag makes installation reproducible. Follow the
+[publishing model](docs/PUBLISHING.md) before upgrading or redistributing the
+plugin.
+
 ## Repository layout
 
 ```text
@@ -52,8 +63,9 @@ Run the repository validator:
 ```
 
 The validator checks skill metadata, plugin metadata, placeholder text, shell
-syntax, and marketplace consistency. It does not prove safety on every host;
-live testing requires a disposable or explicitly authorized environment.
+syntax, secret-like material, release packaging, scenario contracts, and
+marketplace consistency. It does not prove safety on every host; live testing
+requires a disposable or explicitly authorized environment.
 
 ## Release model
 

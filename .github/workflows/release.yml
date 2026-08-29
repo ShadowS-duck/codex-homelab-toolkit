@@ -1,0 +1,46 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify tag, repository, and tests
+        shell: bash
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          test -f "docs/releases/${GITHUB_REF_NAME}.md"
+          python scripts/validate_portable.py
+          python scripts/security_scan.py
+          find . -type f -name '*.sh' -print0 | xargs -0 -r -n1 bash -n
+          for test_script in tests/test-*.sh; do
+            "$test_script"
+          done
+          python scripts/package_release.py --version "$version" --output dist
+      - name: Publish GitHub release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          release_flags=()
+          version="${GITHUB_REF_NAME#v}"
+          if [[ "$version" == 0.* || "$version" == *-* ]]; then
+            release_flags+=(--prerelease)
+          fi
+          gh release create "$GITHUB_REF_NAME" dist/* \
+            --verify-tag \
+            --title "ShadowS-duck Homelab $GITHUB_REF_NAME" \
+            --notes-file "docs/releases/${GITHUB_REF_NAME}.md" \
+            "${release_flags[@]}"

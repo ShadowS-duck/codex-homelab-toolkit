@@ -3,8 +3,8 @@
 ## Stages
 
 1. Repository source, tests, documentation, and tagged releases.
-2. Project marketplace installation from a checked-out source.
-3. Validated, versioned plugin release artifact.
+2. Project marketplace installation from a pinned Git source.
+3. Validated, versioned plugin ZIP and checksum artifact.
 4. Directory submission after privacy, security, support, and review gates.
 
 A public repository is not automatically a public plugin listing.
@@ -20,5 +20,6 @@ A public repository is not automatically a public plugin listing.
 - privacy impact and external dependencies are documented;
 - semantic version and release notes are prepared.
 
-The project currently prepares Stage 1. Installation and directory submission
-are not yet verified.
+Version `0.1.0` verifies Stages 1 through 3 as a pre-stable GitHub release.
+Stage 4 is not claimed: repository publication and personal marketplace
+installation do not create a universal Codex directory listing.

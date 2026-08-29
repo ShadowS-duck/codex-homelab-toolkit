@@ -5,12 +5,17 @@ on:
   push:
     branches: [main]
 
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
 jobs:
   validate:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -18,8 +23,15 @@ jobs:
           python-version: "3.12"
       - name: Validate repository contracts
         run: python scripts/validate_portable.py
+      - name: Scan repository safety contracts
+        run: python scripts/security_scan.py
       - name: Check shell syntax
         run: find . -type f -name '*.sh' -print0 | xargs -0 -r -n1 bash -n
+      - name: Run portable tests
+        run: |
+          for test_script in tests/test-*.sh; do
+            "$test_script"
+          done
       - name: Check placeholders
         run: |
           ! grep -RInE '\[TODO:|TODO\b|FIXME\b' . \

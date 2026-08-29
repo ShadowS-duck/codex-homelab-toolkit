@@ -15,6 +15,7 @@ fail() {
 [[ -f "$plugin_validator" ]] || fail "Plugin validator not found: $plugin_validator"
 
 python3 "$repo_root/scripts/validate_portable.py"
+python3 "$repo_root/scripts/security_scan.py"
 
 while IFS= read -r skill_dir; do
   python3 "$skill_validator" "$skill_dir"
