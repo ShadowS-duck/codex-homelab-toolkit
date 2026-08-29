@@ -23,6 +23,10 @@ Existing personal tooling is classified in the
 control bridge has a separate [safe migration plan](docs/LEGACY_RASPBERRY_CONTROL.md)
 and is not copied into this public repository.
 
+The four foundation skills currently satisfy the repository's
+[tested gate](docs/RELEASE_GATES.md); the plugin remains pre-stable until bounded
+target, upgrade, rollback, and tagged-release evidence exist.
+
 ## Repository layout
 
 ```text

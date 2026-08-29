@@ -6,10 +6,10 @@ Maturity levels are **experimental**, **tested**, and **stable**.
 
 | Skill | Maturity | Responsibility |
 | --- | --- | --- |
-| `audit-homelab-host` | experimental | Sanitized read-only Linux host baseline |
-| `plan-homelab-bootstrap` | experimental | Phased bootstrap plan with gates and rollback |
-| `review-homelab-change` | experimental | Safety and operability review of a proposed change |
-| `sync-homelab-docs` | experimental | Evidence-aware reconciliation of state and docs |
+| `audit-homelab-host` | tested | Sanitized read-only Linux host baseline |
+| `plan-homelab-bootstrap` | tested | Phased bootstrap plan with gates and rollback |
+| `review-homelab-change` | tested | Safety and operability review of a proposed change |
+| `sync-homelab-docs` | tested | Evidence-aware reconciliation of state and docs |
 
 ## Planned operational set
 
@@ -26,3 +26,6 @@ Maturity levels are **experimental**, **tested**, and **stable**.
 
 Candidates are not scaffolded until concrete examples and test fixtures exist.
 This prevents metadata overload and untested implicit triggers.
+
+See [Release Gates](RELEASE_GATES.md) for maturity evidence and the remaining
+requirements for a stable release.
